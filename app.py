@@ -3,8 +3,38 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 
-# ------------------ PAGE SETUP ------------------
-st.set_page_config(page_title="Sustainability Tracker", layout="wide")
+# ------------------ PAGE CONFIG ------------------
+st.set_page_config(
+    page_title="Sustainability Tracker",
+    page_icon="logo.png",
+    layout="wide"
+)
+
+# ------------------ LOAD CUSTOM CSS ------------------
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+local_css("style.css")
+
+# ------------------ NAVBAR ------------------
+st.markdown("""
+<nav class="navbar">
+    <div class="navbar-left">
+        <img src="logo.png" class="navbar-logo" alt="Logo">
+        <span class="navbar-title">Sustainability Tracker</span>
+    </div>
+    <div class="navbar-right">
+        <a href="#" class="nav-link">Dashboard</a>
+        <a href="#" class="nav-link">Reports</a>
+        <a href="#" class="nav-link">Analytics</a>
+        <a href="#" class="nav-link">About</a>
+    </div>
+</nav>
+""", unsafe_allow_html=True)
+
+# Add space so dashboard content doesn’t hide under navbar
+st.markdown("<div style='margin-top:80px;'></div>", unsafe_allow_html=True)
 
 # ------------------ LOAD DATA ------------------
 @st.cache_data
@@ -17,28 +47,19 @@ def load_data():
 routes, vehicles, orders = load_data()
 
 # ------------------ MERGE & PREPARE DATA ------------------
-# Merge orders + routes (common column = Order_ID)
 df = orders.merge(routes, on="Order_ID", how="left")
-
-# Assign random or proportional vehicle types to each order
 
 vehicle_types = vehicles["Vehicle_Type"].unique()
 df["Vehicle_Type"] = np.random.choice(vehicle_types, len(df))
 
-# Add average fuel efficiency for each vehicle type
 vehicles_avg = vehicles.groupby("Vehicle_Type")["Fuel_Efficiency_KM_per_L"].mean().reset_index()
 df = df.merge(vehicles_avg, on="Vehicle_Type", how="left")
 
-# Calculate CO2 emission per km using efficiency
 df["CO2_Emissions_Kg_per_KM"] = 2.68 / df["Fuel_Efficiency_KM_per_L"]
-
-# Calculate total emissions
 df["total_emission_kg"] = df["Distance_KM"] * df["CO2_Emissions_Kg_per_KM"]
 
-# Replace missing or infinite values
 df.replace([np.inf, -np.inf], np.nan, inplace=True)
 df.fillna(0, inplace=True)
-
 
 # ------------------ SIDEBAR FILTERS ------------------
 st.sidebar.header("Filters")
@@ -72,17 +93,19 @@ st.divider()
 # ------------------ VISUALIZATIONS ------------------
 col1, col2 = st.columns(2)
 
-# Emission by Product Category
 with col1:
-    fig1 = px.bar(filtered_df, x="Product_Category", y="total_emission_kg", color="Product_Category",
-                  title="Emissions by Product Category", text_auto=True)
-    st.plotly_chart(fig1, use_container_width=True)
+    fig1 = px.bar(
+        filtered_df, x="Product_Category", y="total_emission_kg", color="Product_Category",
+        title="Emissions by Product Category", text_auto=True
+    )
+    st.plotly_chart(fig1, config={"displayModeBar": False}, use_container_width=True)
 
-# Emission by Origin Warehouse
 with col2:
-    fig2 = px.bar(filtered_df, x="Origin", y="total_emission_kg", color="Origin",
-                  title="Emissions by Warehouse (Origin)", text_auto=True)
-    st.plotly_chart(fig2, use_container_width=True)
+    fig2 = px.bar(
+        filtered_df, x="Origin", y="total_emission_kg", color="Origin",
+        title="Emissions by Warehouse (Origin)", text_auto=True
+    )
+    st.plotly_chart(fig2, config={"displayModeBar": False}, use_container_width=True)
 
 # ------------------ PIE CHART: PRIORITY CONTRIBUTION ------------------
 st.subheader("📊 Emission Contribution by Order Priority")
@@ -115,7 +138,11 @@ st.dataframe(filtered_df[[
 
 # ------------------ DOWNLOAD BUTTON ------------------
 csv = filtered_df.to_csv(index=False).encode("utf-8")
-st.download_button("📥 Download Sustainability Report", data=csv,
-                   file_name="sustainability_report.csv", mime="text/csv")
+st.download_button(
+    "📥 Download Sustainability Report",
+    data=csv,
+    file_name="sustainability_report.csv",
+    mime="text/csv"
+)
 
 st.success("✅ Dashboard loaded successfully! Analyze emissions, filter insights, and download your sustainability report.")
