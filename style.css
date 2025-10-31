@@ -1,226 +1,224 @@
-/* 🌟 Sustainability Tracker – White + Gold Premium Theme 🌟 */
-
-/* ---- PAGE BASE ---- */
 body {
-    background: linear-gradient(135deg, #ffffff, #f7f3e9, #efe6d9);
-    color: #333 !important;
+    background: linear-gradient(135deg, #f0fff4, #e6f7ee, #f8fff9);
+    color: #1b4332 !important;
     font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     overflow-x: hidden;
 }
 
-/* ---- SIDEBAR ---- */
-section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #fffefb 0%, #f8f5ef 100%);
-    border-right: 1px solid rgba(0,0,0,0.1);
-    box-shadow: 2px 0 15px rgba(0,0,0,0.1);
-}
-
-section[data-testid="stSidebar"] .css-1d391kg {
-    color: #444 !important;
-}
-
-section[data-testid="stSidebar"] .stMarkdown p {
-    color: #555 !important;
-}
-
-div[data-testid="stSidebarNav"] ul li {
-    color: #b89b2d;
-}
-
-/* ---- MAIN TITLE ---- */
-h1 {
-    background: linear-gradient(90deg, #c5a700, #e0b84e, #f1d98a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center !important;
-    font-size: 2.6rem !important;
-    font-weight: 800;
-    margin-top: 1rem;
-}
-
-/* ---- SUBHEADINGS ---- */
-h2, h3, h4 {
-    color: #4b4b4b !important;
-    font-weight: 600;
-}
-
-/* ---- KPI METRIC CARDS ---- */
-[data-testid="metric-container"] {
-    background: #ffffffaa;
-    border: 1px solid #e0cf94;
-    border-radius: 20px;
-    padding: 1.2rem;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(184,155,45,0.1);
-}
-[data-testid="metric-container"]:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 25px rgba(184,155,45,0.3);
-}
-
-/* ---- DATAFRAME ---- */
-.stDataFrame {
-    background-color: rgba(255,255,255,0.85) !important;
-    border-radius: 20px !important;
-    padding: 1rem !important;
-    box-shadow: 0 0 12px rgba(184,155,45,0.15);
-}
-
-.stDataFrame td, .stDataFrame th {
-    color: #333 !important;
-}
-
-/* ---- DOWNLOAD BUTTON ---- */
-.stDownloadButton button {
-    background: linear-gradient(90deg, #d4af37, #e7c67a);
-    color: #fff !important;
-    border: none;
-    padding: 0.8rem 2rem;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-.stDownloadButton button:hover {
-    background: linear-gradient(90deg, #f7e3a1, #d4af37);
-    box-shadow: 0 0 20px rgba(212,175,55,0.4);
-    transform: scale(1.05);
-}
-
-/* ---- SUCCESS MESSAGE ---- */
-.stSuccess {
-    background: linear-gradient(90deg, #e6c85d, #d4af37);
-    color: #fff !important;
-    border-radius: 12px;
-    text-align: center;
-    font-weight: 600;
-}
-
-/* ---- PLOTLY CHARTS ---- */
-.js-plotly-plot .plotly .main-svg {
-    background: transparent !important;
-}
-
-/* ---- DIVIDERS ---- */
-hr {
-    border: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #d4af37, transparent);
-    margin: 2rem 0;
-}
-
-/* ---- FOOTER ---- */
-footer {
-    visibility: hidden;
-}
-
-/* ---- BACKGROUND GLOW ---- */
-body::before {
-    content: "";
+.navbar-custom {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100px;
+    background: linear-gradient(90deg, #74c69d, #52b788, #40916c);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 40px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+    z-index: 99999;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-logo {
+    height: 70px;
+    width: auto;
+    border-radius: 40px;
+}
+
+.navbar-title {
+    color: white;
+    font-size: 42px;
+    font-weight: 800;
+    margin-left: 14px;
+}
+
+section[data-testid="stSidebar"] {
+    margin-top: 100px !important;
+}
+
+.block-container {
+    padding-top: 100px !important;
+}
+
+
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #f7fff9 0%, #e9f7ec 100%);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 0px 10px rgba(0, 128, 0, 0.05);
+    padding-top: 12px;
+}
+
+section[data-testid="stSidebar"] .stMarkdown p,
+section[data-testid="stSidebar"] label {
+    color: #14532d !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    background-color: rgba(147, 197, 114, 0.3);
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-bottom: 4px !important;
+    display: inline-block;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+section[data-testid="stSidebar"] .stSelectbox {
+    background: #ffffffcc !important;
+    border-radius: 10px;
+    font-size: 14px !important;
+}
+
+.main-title {
+    background: linear-gradient(90deg, #2d6a4f, #74c69d, #95d5b2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left !important;
+    font-size: 60px !important;
+    font-weight: 800;
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+}
+
+h1 {
+    background: linear-gradient(90deg, #2d6a4f, #74c69d, #95d5b2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center !important;
+    font-size: 34px !important;
+    font-weight: 800;
+    margin-top: 12px;
+}
+
+h2, h3, h4 {
+    color: #1b4332 !important;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.metric-box {
+    background: #ffffffee;
+    border: 2px solid #95d5b2;
+    border-radius: 16px;
+    padding: 14px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(82,183,136,0.1);
+    transition: 0.3s;
+    width: 300px;
+    height: 120px;
+}
+
+.metric-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 18px rgba(82,183,136,0.25);
+}
+
+.metric-box h4 {
+    color: #1b4332 !important;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.metric-box p {
+    color: #2d6a4f !important;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.metric-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.element-container:has(.js-plotly-plot) {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0px !important;
+}
+
+
+.js-plotly-plot text,
+.js-plotly-plot .xtick text,
+.js-plotly-plot .ytick text {
+    fill: #1b4332 !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+}
+
+hr {
+    border: 0px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #52b788, transparent);
+    margin: 20px 0px;
+}
+
+.stDownloadButton button {
+    background: linear-gradient(90deg, #52b788, #95d5b2);
+    color: #fff !important;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 18px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.stDownloadButton button:hover {
+    background: linear-gradient(90deg, #95d5b2, #52b788);
+    box-shadow: 0px 0px 15px rgba(82,183,136,0.4);
+    transform: scale(1.04);
+}
+
+.stSuccess {
+    background: linear-gradient(90deg, #74c69d, #52b788);
+    color: #fff !important;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+header[data-testid="stHeader"], .navbar, .navbar-left, .navbar-right {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0px;
+    left: 0px;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 20%, rgba(212,175,55,0.1), transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(255,215,0,0.08), transparent 40%);
+    background: radial-gradient(circle at 20% 20%, rgba(82,183,136,0.1), transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(116,198,157,0.08), transparent 40%);
     z-index: -1;
     animation: softGlow 10s infinite alternate ease-in-out;
 }
 
 @keyframes softGlow {
-    0% { transform: scale(1) translate(0,0); }
+    0% { transform: scale(1) translate(0px, 0px); }
     100% { transform: scale(1.05) translate(10px, 10px); }
 }
 
-/* 🌐 FIXED TOP NAVBAR */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 2rem;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(212,175,55,0.25);
-    box-shadow: 0 0 25px rgba(212,175,55,0.15);
-    margin: 0;
-}
-
-/* Left side (logo + title) */
-.navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.navbar-logo {
-    height: 42px;
-    width: 42px;
-    border-radius: 50%;
-    box-shadow: 0 0 12px rgba(212,175,55,0.4);
-}
-
-.navbar-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #c5a700;
-    letter-spacing: 0.7px;
-    text-shadow: 0 0 8px rgba(212,175,55,0.3);
-}
-
-/* Right side (links) */
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.nav-link {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s ease;
-    position: relative;
-    font-size: 1rem;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #d4af37, #f1d98a);
-    transition: width 0.3s ease;
-    border-radius: 2px;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.nav-link:hover {
-    color: #d4af37;
-    text-shadow: 0 0 8px rgba(212,175,55,0.3);
-}
-
-/* Responsive navbar */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem;
-    }
-    .navbar-right {
-        margin-top: 0.5rem;
-        gap: 1rem;
-    }
+footer {
+    visibility: hidden;
 }
