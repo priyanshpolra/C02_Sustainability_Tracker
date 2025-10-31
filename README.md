@@ -76,7 +76,7 @@ Your dashboard will be available at 👉 **[http://localhost:8501](http://localh
 
 | Dashboard View                                                                                    | Emission Analysis                                                              |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| ![Dashboard Screenshot](https://user-images.githubusercontent.com/00000000/dashboard-preview.png) | ![Chart](https://user-images.githubusercontent.com/00000000/chart-preview.png) |
+| ![Dashboard Screenshot](assets/dashboard.png) | ![Chart](assets/chart.png) |
 
 *(Replace with your actual screenshots once available)*
 
